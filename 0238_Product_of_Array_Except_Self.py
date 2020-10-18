@@ -17,3 +17,20 @@ class Solution:
             ans1[i]*=ans2[i]
             
         return ans1
+
+#--- solved by moi
+
+right=[1]
+j=0
+for i in range(len(num)-1, 0, -1):
+    right.append(num[i]*right[j])
+    j+=1
+    
+right.reverse()
+left = [1]
+
+for i in range(len(num)-1):
+    left.append(num[i]*left[i])
+    left[i]*=right[i]
+    
+return left
